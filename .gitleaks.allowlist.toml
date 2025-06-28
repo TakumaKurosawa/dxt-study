@@ -1,0 +1,6 @@
+[[allowlist]]
+description = "設定ファイルは許可"
+paths = [
+  ".gitleaks.toml",
+  ".gitleaks.allowlist.toml"
+]

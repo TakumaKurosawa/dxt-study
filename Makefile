@@ -6,6 +6,7 @@
 setup: ## Install all dependencies ## make setup
 	pnpm install
 	go work sync
+
 	@if ! command -v dxt >/dev/null 2>&1; then \
 		echo "🔧 dxt command not found. Installing..."; \
 		pnpm i -g @anthropic-ai/dxt; \
@@ -13,6 +14,25 @@ setup: ## Install all dependencies ## make setup
 	else \
 		echo "✅ dxt command is already installed"; \
 	fi
+
+	@if ! command -v gitleaks >/dev/null 2>&1; then \
+		echo "🔒 gitleaks command not found. Installing..."; \
+		go install github.com/zricethezav/gitleaks/v8@latest; \
+		echo "✅ gitleaks installed successfully"; \
+	else \
+		echo "✅ gitleaks command is already installed"; \
+	fi
+	
+	@if ! command -v lefthook >/dev/null 2>&1; then \
+		echo "🪝 lefthook command not found. Installing..."; \
+		pnpm i -g lefthook; \
+		echo "✅ lefthook installed successfully"; \
+	else \
+		echo "✅ lefthook command is already installed"; \
+	fi
+
+	@echo "🔧 Setting up lefthook hooks..."
+	lefthook install
 
 ##### RUN #####
 
