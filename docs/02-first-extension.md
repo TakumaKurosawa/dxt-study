@@ -141,6 +141,34 @@ hello-world-dxt/
 }
 ```
 
+⚠️ `mise` を使っていたりして `node` コマンドパスが異なる場合： `server.mcp_config.env` で `PATH` を通すとうまくいく
+
+```json
+{
+  "dxt_version": "0.1",
+  "name": "hello-world",
+  "display_name": "Hello World Extension",
+  "version": "1.0.0",
+  "description": "初回作成用のシンプルなHello World拡張機能",
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com"
+  },
+  "license": "MIT",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.js"],
+      "env": {
+        "PATH": "/path-to-home/.local/share/mise/installs/node/22.17.0/bin:${PATH}"
+      }
+    }
+  }
+}
+```
+
 ## 🔧 ステップ 3: MCP サーバーの実装
 
 ### package.json の設定
