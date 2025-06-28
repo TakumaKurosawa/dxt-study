@@ -1,0 +1,14 @@
+pre-commit:
+  commands:
+    format-lint:
+      run: lefthook run format-lint
+    gitleaks:
+      run: gitleaks detect --source . -v
+
+format-lint:
+  parallel: true
+  commands:
+    format:
+      run: make format
+    lint:
+      run: make lint

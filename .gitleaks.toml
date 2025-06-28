@@ -1,0 +1,27 @@
+title = "gitleaks config"
+useAllowList = true
+allowListPath = ".gitleaks.allowlist.toml"
+
+[[rules]]
+id = "openai-api-key"
+description = "OpenAI API Key"
+regex = '''(?i)(?:openai(?:[0-9a-z\-_\t .]{0,20})(?:[\s|']|[\s|"]){0,3}(?:key|token|secret|password)(?:[0-9a-z\-_\t .]{0,20})[\s|=|:|\|]{0,5})[s|'|"]*(sk-[a-zA-Z0-9]{48})[s|'|"|\n|\r|\s]*'''
+keywords = ["openai", "sk-"]
+
+[[rules]]
+id = "gemini-api-key"
+description = "Google Gemini API Key"
+regex = '''(?i)(?:gemini|google)(?:[0-9a-z\-_\t .]{0,20})(?:[\s|']|[\s|"]){0,3}(?:key|token|secret|password)(?:[0-9a-z\-_\t .]{0,20})[\s|=|:|\|]{0,5}[s|'|"]*(AIza[a-zA-Z0-9_\-]{35,})[s|'|"|\n|\r|\s]*'''
+keywords = ["gemini", "google", "AIza"]
+
+[[rules]]
+id = "claude-api-key"
+description = "Anthropic Claude API Key"
+regex = '''(?i)(claude|anthropic).*?[^a-zA-Z0-9](sk-ant-[a-zA-Z0-9-]{30,})'''
+keywords = ["claude", "anthropic", "sk-ant"]
+
+[[rules]]
+id = "generic-claude-key"
+description = "Generic Anthropic Claude API Key Pattern"
+regex = '''sk-ant-[a-zA-Z0-9-]{30,}'''
+keywords = ["sk-ant"]
