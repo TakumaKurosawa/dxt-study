@@ -1,0 +1,25 @@
+{
+    "dxt_version": "0.1",
+    "name": "hello-world-go",
+    "version": "1.0.0",
+    "description": "Go言語で実装されたHello World MCP拡張機能（公式SDK使用）",
+    "author": {
+        "name": "TakumaKurosawa"
+    },
+    "documentation": "https://github.com/TakumaKurosawa/dxt-study",
+    "server": {
+        "type": "binary",
+        "entry_point": "${__dirname}/server/hello-world-binary",
+        "mcp_config": {
+            "command": "${__dirname}/server/hello-world-binary",
+            "args": [],
+            "env": {}
+        }
+    },
+    "compatibility": {
+        "platforms": [
+            "darwin"
+        ]
+    },
+    "license": "MIT"
+}
