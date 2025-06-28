@@ -1,42 +1,42 @@
 {
-    "$schema": "https://biomejs.dev/schemas/2.0.6/schema.json",
-    "vcs": {
-        "enabled": true,
-        "clientKind": "git",
-        "useIgnoreFile": true
-    },
-    "files": {
-        "ignoreUnknown": false,
-        "includes": [
-            "apps/*/server/**/*.js",
-            "apps/*/server/**/*.json",
-            "*.js",
-            "*.json"
-        ]
-    },
-    "formatter": {
-        "enabled": true,
-        "indentStyle": "space",
-        "indentWidth": 2,
-        "lineWidth": 80
-    },
-    "linter": {
-        "enabled": true,
-        "rules": {
-            "recommended": true,
-            "style": {
-                "useConst": "error"
-            },
-            "suspicious": {
-                "noConsole": "off"
-            }
-        }
-    },
-    "javascript": {
-        "formatter": {
-            "semicolons": "always",
-            "trailingCommas": "es5",
-            "quoteStyle": "single"
-        }
+  "$schema": "https://biomejs.dev/schemas/2.0.6/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "includes": [
+      "apps/*/server/**/*.js",
+      "apps/*/server/**/*.json",
+      "*.js",
+      "*.json"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 80
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "style": {
+        "useConst": "error"
+      },
+      "suspicious": {
+        "noConsole": "off"
+      }
     }
+  },
+  "javascript": {
+    "formatter": {
+      "semicolons": "always",
+      "trailingCommas": "es5",
+      "quoteStyle": "single"
+    }
+  }
 }

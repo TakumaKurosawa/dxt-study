@@ -1,0 +1,101 @@
+version: "2"
+
+run:
+  allow-parallel-runners: true
+  timeout: 5m
+
+linters:
+  default: none
+  enable:
+    - errcheck
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    - contextcheck
+    - errorlint
+    - gocyclo
+    - gosec
+    - misspell
+    - prealloc
+    - recvcheck
+    - unconvert
+    - unparam
+    - wrapcheck
+    - gocritic
+  settings:
+    errcheck:
+      check-type-assertions: true
+      check-blank: true
+    gocritic:
+      enabled-tags:
+        - diagnostic
+        - style
+        - performance
+        - experimental
+        - opinionated
+      settings:
+        rangeValCopy:
+          sizeThreshold: 32
+    gocyclo:
+      min-complexity: 30
+    gosec:
+      excludes:
+        - G601
+    prealloc:
+      simple: true
+      range-loops: true
+      for-loops: true
+    unparam:
+      check-exported: false
+    wrapcheck:
+      ignore-sigs:
+        - .Errorf(
+        - errors.New(
+        - errors.Unwrap(
+        - errors.Join(
+        - cerror.New(
+        - cerror.Wrap(
+      ignore-package-globs:
+        - hello-world-binary/*
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    rules:
+      - linters:
+          - containedctx
+        path: _test\.go
+    paths:
+    paths-except:
+      - ^.*\.(pb|y)\.go$
+      - ^.*\.sql\.go$
+      - ^.*\.pb.validate\.go$
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
+
+formatters:
+  enable:
+    - gci
+    - gofumpt
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - prefix(hello-world-binary)
+        - dot
+    gofumpt:
+      module-path: hello-world-binary
+      extra-rules: true
+  exclusions:
+    generated: lax
+    paths:
+      - ^.*\.(pb|y)\.go$
+      - ^.*\.sql\.go$
+      - ^.*\.pb.validate\.go$
