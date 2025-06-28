@@ -1,9 +1,12 @@
 {
-    "name": "hello-world-mcp-server",
-    "version": "1.0.0",
-    "type": "module",
-    "main": "index.js",
-    "dependencies": {
-        "@modelcontextprotocol/sdk": "^1.0.0"
-    }
+  "name": "hello-world-mcp-server",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
 }
