@@ -1,0 +1,45 @@
+name: presubmit
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+    branches:
+      - "**"
+
+jobs:
+  assign-author:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign pull request author
+        uses: technote-space/assign-author@v1
+
+  validate-title:
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: |
+          if [ ${#TITLE} -le 10 ]; then
+              echo "Pull request title is too short"
+              exit 1
+          fi
+          if [[ ! $TITLE =~ ^[A-Z](.*)$ ]]; then
+              echo "Pull request title must be started with a capital letter"
+              exit 1
+          fi
+          echo "The PR title looks fine!"
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+
+  merge-gatekeeper:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Run Merge Gatekeeper
+        if: github.event_name == 'pull_request'
+        uses: upsidr/merge-gatekeeper@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          self: merge-gatekeeper
