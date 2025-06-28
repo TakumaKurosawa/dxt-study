@@ -141,7 +141,7 @@ hello-world-dxt/
 }
 ```
 
-⚠️ `mise` を使っていたりして `node` コマンドパスが異なる場合： `server.mcp_confg.env` で `PATH` を通すとうまくいく
+⚠️ `mise` を使っていたりして `node` コマンドパスが異なる場合： `server.mcp_config.env` で `PATH` を通すとうまくいく
 
 ```json
 {
