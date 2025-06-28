@@ -1,0 +1,30 @@
+{
+  "dxt_version": "0.1",
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "Just say hello app",
+  "author": {
+    "name": "TakumaKurosawa"
+  },
+  "documentation": "https://github.com/TakumaKurosawa/dxt-study",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {}
+    }
+  },
+  "tools": [
+    {
+      "name": "say_hello"
+    },
+    {
+      "name": "get_time"
+    }
+  ],
+  "license": "MIT"
+}
