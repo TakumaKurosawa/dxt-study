@@ -1,0 +1,21 @@
+{
+    "name": "dxt-study",
+    "version": "1.0.0",
+    "description": "DXT study monorepo for MCP server development",
+    "private": true,
+    "workspaces": [
+        "apps/*/server"
+    ],
+    "scripts": {
+        "dev:hello-world": "pnpm --filter hello-world-mcp-server dev",
+        "lint": "biome lint --write apps/*/server",
+        "format": "biome format --write apps/*/server"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.0.6"
+    },
+    "engines": {
+        "node": ">= 22",
+        "pnpm": ">= 10"
+    }
+}
